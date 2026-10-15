@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Fire {
     /**
      * Returns how long it takes for all vulnerable trees to be set on fire if a
@@ -38,8 +41,20 @@ public class Fire {
     public static int timeToBurn(char[][] forest, int matchR, int matchC) {
         // HINT: when adding to your BFS queue, you can include more information than
         // just a location. What other information might be useful?
+        int [] start = {matchR, matchC};
 
-        
+        Set<Location> visited = new HashSet<>();
+
+
+        //if starting position is = 0 seconds, what are the location of the 
+        //trees burned at each second until there are no more reachable trees
+
+        //keep track of each Tree's location and Time step in the Queue 
+
+
+
+
+
 
         // Implement this AND add more tests!!!
         return -1;
