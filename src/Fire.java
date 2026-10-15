@@ -39,6 +39,8 @@ public class Fire {
         // HINT: when adding to your BFS queue, you can include more information than
         // just a location. What other information might be useful?
 
+        
+
         // Implement this AND add more tests!!!
         return -1;
     }
