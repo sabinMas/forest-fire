@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,9 +42,10 @@ public class Fire {
     public static int timeToBurn(char[][] forest, int matchR, int matchC) {
         // HINT: when adding to your BFS queue, you can include more information than
         // just a location. What other information might be useful?
-        int [] start = {matchR, matchC};
+        Location start = {matchR, matchC, 0};
 
         Set<Location> visited = new HashSet<>();
+        Queue<Location> queue = new ArrayDeque<>();
 
 
         //if starting position is = 0 seconds, what are the location of the 
