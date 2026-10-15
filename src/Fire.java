@@ -42,10 +42,18 @@ public class Fire {
     public static int timeToBurn(char[][] forest, int matchR, int matchC) {
         // HINT: when adding to your BFS queue, you can include more information than
         // just a location. What other information might be useful?
+        int[] rows = forest.length;
+        int[] columns = forest[rows].length;
+       
         Location start = {matchR, matchC, 0};
 
-        Set<Location> visited = new HashSet<>();
+        boolean[][] visited = new boolean[rows][columns];
         Queue<Location> queue = new ArrayDeque<>();
+
+        //add start to queue 
+        queue.add(start);
+
+        
 
 
         //if starting position is = 0 seconds, what are the location of the 
