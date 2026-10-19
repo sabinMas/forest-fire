@@ -1,3 +1,3 @@
-public record Location(int row, int column, int step) {
+public record Location(int row, int column, int steps) {
     
 }

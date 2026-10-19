@@ -1,3 +1,4 @@
+import java.util.Queue;
 import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Set;
@@ -42,11 +43,20 @@ public class Fire {
     public static int timeToBurn(char[][] forest, int matchR, int matchC) {
         // HINT: when adding to your BFS queue, you can include more information than
         // just a location. What other information might be useful?
+        int[][] directions = {
+            {-1, 0}, //UP
+            {1, 0},//DOWN
+            {0, -1},//LEFT
+            {0, 1}//RIGHT
+        };
+
+
+        int maxSteps = 0;
         int rows = forest.length;
         if(rows == 0) return 0;
         int columns = forest[rows].length;
 
-        Location start = {matchR, matchC, 0};
+        Location start = new Location(matchR, matchC, maxSteps);
 
         if(matchR < 0 || matchR >= rows || matchC < 0 || matchC >= columns || forest[matchR][matchC] != 't'){
             return 0;
@@ -58,20 +68,32 @@ public class Fire {
         //add start to queue 
         queue.add(start);
 
-        
+        //mark visited
+        visited[matchR][matchC] = true;
+        while(!queue.isEmpty()) {
+            Location current = queue.poll();
+
+            maxSteps = Math.max(maxSteps, current.steps());
+
+            for (int[] dir : directions) {
+                int newRow = current.row() + dir[0];
+                int newCol = current.column() + dir[1];
 
 
+                //
+                if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < columns && !visited[newRow][newCol] && forest[newRow][newCol] == 't') {
+                    visited[newRow][newCol] = true;
+                    queue.add(new Location(newRow, newCol, current.steps() + 1));
+                }
+            }
+        }
+    
         //if starting position is = 0 seconds, what are the location of the 
         //trees burned at each second until there are no more reachable trees
 
         //keep track of each Tree's location and Time step in the Queue 
 
-
-
-
-
-
         // Implement this AND add more tests!!!
-        return -1;
+        return maxSteps;
     }
 }
