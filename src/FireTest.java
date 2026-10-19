@@ -22,4 +22,15 @@ public class FireTest {
     }
 
     // Add more tests!
+    @Test
+    public void testSingleTree() {
+        char[][] forest = {{'t'}};
+        assertEquals(0, Fire.timeToBurn(forest,0 ,0));
+    }
+    @Test 
+    public void testMatchOutOfBounds() {
+        char[][] forest = {{'t', 't', 't'}};
+        assertEquals(0, Fire.timeToBurn(forest, 5 , 5));
+        assertEquals(0, Fire.timeToBurn(forest, -1, 0));
+    }
 }

@@ -54,7 +54,7 @@ public class Fire {
         int maxSteps = 0;
         int rows = forest.length;
         if(rows == 0) return 0;
-        int columns = forest[rows].length;
+        int columns = forest[0].length;
 
         Location start = new Location(matchR, matchC, maxSteps);
 
