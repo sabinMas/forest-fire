@@ -33,4 +33,22 @@ public class FireTest {
         assertEquals(0, Fire.timeToBurn(forest, 5 , 5));
         assertEquals(0, Fire.timeToBurn(forest, -1, 0));
     }
+
+    @Test
+    public void twoForestsTouchDiagonally() {
+        char[][] forest = {
+            {'t','t','t','.','.','t','t','t','t'},
+            {'t','t','t','t','.','t','t','t','t'},
+            {'t','t','t','.','t','t','t','t','t'},
+            {'t','t','t','.','.','t','t','t','t'}
+        };
+
+        int matchR = 1;
+        int matchC = 7;
+
+        int expected = 4;
+        int actual = Fire.timeToBurn(forest, matchR, matchC);
+
+        assertEquals(expected, actual);
+    }
 }
